@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Search</title>
+</head>
+<body>
+
+  <h1>File Search</h1>
+  <input type="text" id="searchInput" placeholder="Search for files">
+  <button onclick="searchFiles()">Search</button>
+
+  <ul id="results"></ul>
+
+  <script>
+    function searchFiles() {
+      // 입력된 검색어 가져오기
+      var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+      // 모든 링크 가져오기
+      var links = document.getElementsByTagName('a');
+      var resultsList = document.getElementById('results');
+      resultsList.innerHTML = '';
+
+      // 각 링크에 대해 검색어와 일치하는지 확인
+      for (var i = 0; i < links.length; i++) {
+        var linkText = links[i].innerText.toLowerCase();
+        if (linkText.includes(searchTerm)) {
+          var listItem = document.createElement('li');
+          listItem.textContent = links[i].outerHTML;
+          resultsList.appendChild(listItem);
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
