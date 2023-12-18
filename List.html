@@ -57,6 +57,12 @@
                         htmlLink.href = file.html_url;
                         htmlLink.textContent = ' (View)';
                         listItem.appendChild(htmlLink);
+
+                        // Add a link to open HTML file on GitHub Pages
+                        const openInPagesLink = document.createElement('a');
+                        openInPagesLink.href = `https://${kdy010010}.github.io/${Gecom2}/${file.name}`;
+                        openInPagesLink.textContent = ' (Open on GitHub Pages)';
+                        listItem.appendChild(openInPagesLink);
                     }
 
                     fileListElement.appendChild(listItem);
